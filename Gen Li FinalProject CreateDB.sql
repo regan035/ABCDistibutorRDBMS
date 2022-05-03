@@ -26,7 +26,7 @@ CREATE TABLE city(
     city_name VARCHAR (50) NOT NULL,
     city_state_id INT(11)NOT NULL,
     PRIMARY KEY (city_id),
-    FOREIGN KEY (city_state_id)REFERENCES state(state_country_id)
+    FOREIGN KEY (city_state_id)REFERENCES state(state_id)
 ) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 
@@ -56,9 +56,9 @@ CREATE TABLE contact(
     middle_name VARCHAR(50),
     orginazation_name VARCHAR(100),
     address_id INT(11),
-    primary_phone VARCHAR(10),
-    secondary_phone VARCHAR(10),
-    fax VARCHAR(10),
+    primary_phone VARCHAR(20),
+    secondary_phone VARCHAR(20),
+    fax VARCHAR(20),
     email VARCHAR(50),
     PRIMARY KEY (contact_id),
     FOREIGN KEY (address_id) REFERENCES address(address_id)
@@ -68,7 +68,7 @@ CREATE TABLE contact(
 DROP TABLE IF EXISTS customer;
 CREATE TABLE customer(
     customer_id INT(11) AUTO_INCREMENT NOT NULL,
-    -- customer_num VARCHAR(50)NOT NULL UNIQUE,
+    customer_num VARCHAR(50)NOT NULL UNIQUE,
     customer_contact_id INT(11),
     PRIMARY KEY (customer_id),
     FOREIGN KEY (customer_contact_id) REFERENCES contact(contact_id)
@@ -77,34 +77,10 @@ CREATE TABLE customer(
 DROP TABLE IF EXISTS vendor;
 CREATE TABLE vendor(
     vendor_id INT(11) AUTO_INCREMENT NOT NULL,
-    -- vendor_num VARCHAR(50) NOT NULL UNIQUE,
-    contact_id INT (11),
+    vendor_num VARCHAR(50) NOT NULL UNIQUE,
+    vendor_contact_id INT (11),
     PRIMARY KEY (vendor_id),
-    FOREIGN KEY (contact_id) REFERENCES contact(contact_id)
-) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
-DROP TABLE IF EXISTS vendor_product;
-CREATE TABLE vendor_product(
-    vendor_product_id INT(11)AUTO_INCREMENT NOT NULL,
-    vendor_id INT(11)NOT NULL,
-    PRIMARY KEY (vendor_product_id),
-    FOREIGN KEY (vendor_id) REFERENCES vendor (vendor_id)
-) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
-DROP TABLE IF EXISTS product;
-CREATE TABLE product(
-    product_id INT(11) NOT NULL,
-    product_name VARCHAR (80)NOT NULL,
-    product_discription VARCHAR (80),
-    product_category_id INT(11),
-    product_buy_price DECIMAL (10,2) NOT NULL,
-    product_sell_price DECIMAL (10,2) NOT NULL,
-    product_vendor_id INT(11),
-    product_image_url_1 VARCHAR(100),
-    PRIMARY KEY(product_id),
-    FOREIGN KEY(product_vendor_id) REFERENCES vendor_product(vendor_product_id)
-    
-    
+    FOREIGN KEY (vendor_contact_id) REFERENCES contact(contact_id)
 ) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS product_category;
@@ -113,6 +89,36 @@ CREATE TABLE product_category(
     product_category_name VARCHAR(80) NOT NULL,
     PRIMARY KEY(product_category_id)
 ) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS product;
+CREATE TABLE product(
+    product_id INT(11) NOT NULL,
+    product_sku INT(11)NOT NULL,
+    product_name VARCHAR (80)NOT NULL,
+    product_discription VARCHAR (80),
+    product_category_id INT(11),
+    product_sell_price DECIMAL (10,2) NOT NULL,
+    product_image_url_1 VARCHAR(100),
+    PRIMARY KEY(product_id),
+    FOREIGN KEY (product_category_id)REFERENCES product_category(product_category_id)
+    
+        
+) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS vendor_product;
+CREATE TABLE vendor_product(
+    vendor_product_id INT(11)AUTO_INCREMENT NOT NULL,
+    vendor_product_control_id INT(11),
+	vendor_order_price DECIMAL(10,2) NOT NULL,
+    vendor_id INT(11)NOT NULL,
+    PRIMARY KEY (vendor_product_id),
+    FOREIGN KEY (vendor_product_control_id)REFERENCES product(product_id),
+    FOREIGN KEY (vendor_id) REFERENCES vendor (vendor_id)
+) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+
+
+
 
 
 
@@ -133,10 +139,12 @@ CREATE TABLE purchase_order(
     po_number INT(11) AUTO_INCREMENT NOT NULL,
     po_puduct_id INT(11)NOT NULL,
     po_qty DECIMAL(10,2)NOT NULL,
+    po_unit_id INT(11)NOT NULL,
     po_total DECIMAL(10,2)NOT NULL,
     po_sales_tax DECIMAL(10,2)NOT NULL,
     po_vendor_id INT(11) NOT NULL,
     PRIMARY KEY(po_number),
+    FOREIGN KEY (po_unit_id)REFERENCES unit(unit_id),
     FOREIGN KEY (po_vendor_id)REFERENCES vendor(vendor_id),
     FOREIGN KEY (po_puduct_id)REFERENCES product(product_id)
     
