@@ -126,3 +126,46 @@ INSERT INTO ABCDistributorDB.contact
 (016,'Gilbert','Dawson','E','Hirthe LLC',019,'(470)729-5988','','(470)729-5989','gdawson@hirthe.com'),
 (017,'Megan','Quinn','','Dach Group',017,'(256)657-2055','(256)657-2056','(256)657-2057','meganquinn@dach.com'),
 (018,'Elianna','Abbott','G','Schroeder-Mayer',008,'(510)812-1643','(510)812-1644','(510)812-1645','elianna.abbott@smayer.com');
+
+INSERT INTO ABCDistributorDB.customer (customer_id,customer_num,customer_contact_id) VALUES
+(001,C001,001),
+(002,C002,002),
+(003,C003,003),
+(003,C004,004),
+(005,C005,005),
+(006,C006,006),
+(007,C007,007),
+(008,C008,008),
+(009,C009,009);
+
+INSERT INTO ABCDistributorDB.vendor (vendor_id,vendor_num,vendor_contact_id) VALUES
+(001,V001,010),
+(002,V002,011),
+(003,V003,012),
+(004,V004,013),
+(005,V005,014),
+(006,V006,015),
+(007,V007,018);
+
+INSERT INTO ABCDistributorDB.product_category (product_category_id,product_category_name) VALUES
+(001,'Grocery'),
+(002,'Clothes'),
+(003,'Personal Care'),
+(004,'Office'),
+(005,'Electronic'),
+(006,'Appliance'),
+(007,'Automobile'),
+(008,'Sports'),
+(009,'Toy'),
+(010,'Furniture');
+
+INSERT INTO ABCDistributorDB.unit (unit_id,unit_name) VALUES
+(001,'Each'),
+(002,'Box'),
+(003,'Package'),
+(004,'Carton'),
+(005,'Bottle'),
+(006,'Gallon'),
+(007,'Piece');
+
+

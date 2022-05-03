@@ -105,7 +105,7 @@ CREATE TABLE product(
     product_discription VARCHAR (80),
     product_category_id INT(11),
     product_unit_id INT(11),
-    product_sell_price DECIMAL (10,2) NOT NULL,
+    product_unit_price DECIMAL (10,2) NOT NULL,
     product_image_url_1 VARCHAR(100),
     PRIMARY KEY(product_id),
     FOREIGN KEY (product_category_id)REFERENCES product_category(product_category_id),
@@ -132,12 +132,10 @@ CREATE TABLE purchase_order(
     po_number INT(11) AUTO_INCREMENT NOT NULL,
     po_puduct_id INT(11)NOT NULL,
     po_qty DECIMAL(10,2)NOT NULL,
-    po_unit_id INT(11)NOT NULL,
     po_total DECIMAL(10,2)NOT NULL,
     po_sales_tax DECIMAL(10,2)NOT NULL,
     po_vendor_id INT(11) NOT NULL,
     PRIMARY KEY(po_number),
-    FOREIGN KEY (po_unit_id)REFERENCES unit(unit_id),
     FOREIGN KEY (po_vendor_id)REFERENCES vendor(vendor_id),
     FOREIGN KEY (po_puduct_id)REFERENCES product(product_id)
     
