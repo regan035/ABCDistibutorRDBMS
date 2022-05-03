@@ -1,21 +1,6 @@
-use studentdb;
-DROP TABLE IF  EXISTS `country_list`;
+use ABCDistributorDB;
 
-CREATE TABLE IF NOT EXISTS `country_list` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `iso` char(2) NOT NULL,
-  `name` varchar(80) NOT NULL,
-  `nicename` varchar(80) NOT NULL,
-  `iso3` char(3) DEFAULT NULL,
-  `numcode` smallint(6) DEFAULT NULL,
-  `phonecode` int(5) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB   DEFAULT CHARSET=latin1;
-
-
-select * from country_list;
-
-INSERT INTO country_list (`id`, `iso`, `name`, `nicename`, `iso3`, `numcode`, `phonecode`) VALUES
+INSERT INTO country_list (`country_id`, `iso`, `name`, `nicename`, `iso3`, `numcode`, `phonecode`) VALUES
 (1, 'AF', 'AFGHANISTAN', 'Afghanistan', 'AFG', 4, 93),
 (2, 'AL', 'ALBANIA', 'Albania', 'ALB', 8, 355),
 (3, 'DZ', 'ALGERIA', 'Algeria', 'DZA', 12, 213),

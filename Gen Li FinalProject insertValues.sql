@@ -1,0 +1,72 @@
+INSERT INTO ABCDistributorDB.country (country_id,country_name,country_abbr) VALUES
+(001,'The United States Of America','USA'),
+(002,'Canada','CAN'),
+(003,'Mexico','MEX');
+
+INSERT INTO ABCDistributorDB.state (state_id,state_name,state_abbr,state_country_id) VALUES
+(001,'Califonia','CA',001),
+(002,'Pennsylvania','PA',001),
+(003,'New York','NY',001),
+(004,'Texas','TX',001),
+(005,'British Columbia','BC',002),
+(006,'Ontario','ON',002),
+(007,'Quebec','QC',002),
+(008,'Yukon','YT',002),
+(009,'COAHUILA','CH',003),
+(010,'DURANGO','DG',003),
+(011,'GUERRERO','GE	',003),
+(012,'HIDALGO','HD',003);
+
+INSERT INTO ABCDistributorDB.city (city_id,city_name,city_state_id) VALUES
+(001,'Los Angeles',001),
+(002,'San Francisco',001),
+(003,'Pittsburgh',002),
+(004,'Philadelphia',002),
+(005,'New York City',003),
+(006,'Brooklyn',003),
+(007,'Dallas',004),
+(008,'Houston',004),
+(009,'Vancouver',005),
+(010,'Victoria',005),
+(011,'Toronto',006),
+(012,'Ottawa',006),
+(013,'Montréal',007),
+(014,'Québec City',007),
+(015,'Whitehorse',008),
+(016,'Dawson City',008),
+(017,'Saltillo',009),
+(018,'Monclova',009),
+(019,'El Salto',010),
+(020,'Lerdo',010),
+(021,'Iguala',011),
+(022,'Cocula',011),
+(023,'Tepeji',012),
+(024,'Actopan',012);
+
+INSERT INTO ABCDistributorDB.zip_code (zip_code_id,zip_code_num) VALUES
+(001,90001),
+(002,94015),
+(003,15204),
+(004,19019),
+(005,10011),
+(006,11201),
+(007,75006),
+(008,77423),
+(009,'V5Y'),
+(010,'V8P'),
+(011,'M2N'),
+(012,'K1A'),
+(013,'H3A'),
+(014,'G5H'),
+(015,' Y1A 5B4'),
+(016,'Y0B 0A3'),
+(017,25000),
+(018,25700),
+(019,45680),
+(020,35150),
+(021,40023),
+(022,48500),
+(023,42850),
+(024,42500);
+
+
