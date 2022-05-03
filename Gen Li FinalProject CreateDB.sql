@@ -90,6 +90,13 @@ CREATE TABLE product_category(
     PRIMARY KEY(product_category_id)
 ) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS unit;
+CREATE TABLE unit(
+    unit_id INT(11)NOT NULL,
+    unit_name VARCHAR(80)NOT NULL,
+    PRIMARY KEY (unit_id)
+) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
 DROP TABLE IF EXISTS product;
 CREATE TABLE product(
     product_id INT(11) NOT NULL,
@@ -97,11 +104,12 @@ CREATE TABLE product(
     product_name VARCHAR (80)NOT NULL,
     product_discription VARCHAR (80),
     product_category_id INT(11),
+    product_unit_id INT(11),
     product_sell_price DECIMAL (10,2) NOT NULL,
     product_image_url_1 VARCHAR(100),
     PRIMARY KEY(product_id),
-    FOREIGN KEY (product_category_id)REFERENCES product_category(product_category_id)
-    
+    FOREIGN KEY (product_category_id)REFERENCES product_category(product_category_id),
+    FOREIGN KEY (product_unit_id)REFERENCES unit(unit_id)
         
 ) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
@@ -118,21 +126,6 @@ CREATE TABLE vendor_product(
 
 
 
-
-
-
-
--- DROP TABLE IF EXISTS country_product;
--- CREATE TABLE country_product(
---     
--- ) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
-DROP TABLE IF EXISTS unit;
-CREATE TABLE unit(
-    unit_id INT(11)NOT NULL,
-    unit_name VARCHAR(80)NOT NULL,
-    PRIMARY KEY (unit_id)
-) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS purchase_order;
 CREATE TABLE purchase_order(
