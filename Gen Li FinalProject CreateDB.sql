@@ -93,7 +93,7 @@ CREATE TABLE product_category(
 DROP TABLE IF EXISTS product;
 CREATE TABLE product(
     product_id INT(11) NOT NULL,
-    product_sku INT(11)NOT NULL,
+    product_sku VARCHAR(11)NOT NULL,
     product_name VARCHAR (80)NOT NULL,
     product_discription VARCHAR (80),
     product_category_id INT(11),
