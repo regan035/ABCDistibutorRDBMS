@@ -245,6 +245,20 @@ INSERT INTO ABCDistributorDB.store_location (store_id,store_address_id,store_pho
 (004,015,'(205)457-2865'),
 (005,031,'(634)-965-9897');
 
+INSERT INTO ABCDistributorDB.account_transaction(account_transaction_id,account_payment_mathod,account_payment_mathod_num,account_payment_paid)VALUES
+(001,'Cash','','Paid'),
+(002,'Card','****2100','Paid'),
+(003,'Check','****1545','Paid'),
+(004,' ',' ',' '),
+(005,'PAYPAL','','Paid');
+
+INSERT INTO ABCDistributorDB.invoice(invoice_id,invoice_customer_id,invoice_store_id,invoice_po_id,invoice_transaction_id)VALUES
+(001,001,001,001,001),
+(002,002,002,002,002),
+(003,003,003,003,003),
+(004,004,004,004,004),
+(005,005,005,005,005);
+
 
 INSERT INTO ABCDistributorDB.inventory
 (inv_id,inv_product_id,inv_storage_location,inv_oh_qty,inv_auto_reorder_point,inv_auto_reorder_qty,inv_auto_reorder)VALUES
