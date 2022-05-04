@@ -170,6 +170,7 @@ DROP TABLE IF EXISTS account_transaction;
 CREATE TABLE account_transaction(
     account_transaction_id INT(11),
     account_payment_mathod VARCHAR(50),
+    account_payment_mathod_num VARCHAR(50),
     account_payment_received VARCHAR(11),
     PRIMARY KEY(account_transaction_id)
     -- FOREIGN KEY(account_payment_received_id)REFERENCES payment_received(payment_received_id)
