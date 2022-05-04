@@ -132,13 +132,15 @@ CREATE TABLE vendor_product(
 
 DROP TABLE IF EXISTS purchase_order;
 CREATE TABLE purchase_order(
-    po_number INT(11) AUTO_INCREMENT NOT NULL,
+    po_id INT(11) AUTO_INCREMENT NOT NULL,
+    po_num VARCHAR(11)NOT NULL,
     po_puduct_id INT(11)NOT NULL,
     po_qty DECIMAL(10,2)NOT NULL,
+    po_discount DECIMAL(10.2),
     po_total DECIMAL(10,2)NOT NULL,
     po_sales_tax DECIMAL(10,2)NOT NULL,
     po_vendor_id INT(11) NOT NULL,
-    PRIMARY KEY(po_number),
+    PRIMARY KEY(po_id),
     FOREIGN KEY (po_vendor_id)REFERENCES vendor(vendor_id),
     FOREIGN KEY (po_puduct_id)REFERENCES product(product_id)
     
@@ -194,7 +196,7 @@ CREATE TABLE invoice(
     PRIMARY KEY(invoice_id),
     FOREIGN KEY(invoice_customer_id)REFERENCES customer(customer_id),
     FOREIGN KEY(invoice_store_id)REFERENCES store_location(store_id),
-    FOREIGN KEY(invoice_po_num)REFERENCES purchase_order(po_number),
+    FOREIGN KEY(invoice_po_id)REFERENCES purchase_order(po_id),
     FOREIGN KEY(invoice_transaction_id)REFERENCES account_transaction(account_transaction_id)
     
     
