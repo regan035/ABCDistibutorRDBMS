@@ -154,6 +154,8 @@ CREATE TABLE inventory(
     inv_product_id INT(11) NOT NULL,
     inv_storage_location VARCHAR(30)NOT NULL,
     inv_oh_qty DECIMAL(10,1),
+    inv_auto_reorder VARCHAR(10)NOT NULL,
+    inv_auto_reorder_point DECIMAL(10,1),
     inv_reorder_qty DECIMAL(10,1),
     PRIMARY KEY(inv_id),
     FOREIGN KEY(inv_product_id)REFERENCES product(product_id)
