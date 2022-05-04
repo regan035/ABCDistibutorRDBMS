@@ -167,7 +167,8 @@ INSERT INTO ABCDistributorDB.unit (unit_id,unit_name) VALUES
 (005,'Bottle'),
 (006,'Gallon'),
 (007,'Piece'),
-(008,'Dozen');
+(008,'Dozen'),
+(009,'Case');
 
 INSERT INTO ABCDistributorDB.product 
 (product_id,product_sku,product_name,product_discription,product_category_id,product_unit_id,product_unit_price,product_image_url_1) VALUES
@@ -200,4 +201,6 @@ INSERT INTO ABCDistributorDB.product
 (027,'45326235','Bread Toaster','Bread Toaster Stainless Steel',006,001,19.99,''),
 (028,'42674234','Coffee Maker','Coffee Maker,Automatic',006,001,29.99,'');
 
-INSERT INTO ABCDistributorDB.vendor_product (vendor_product_id,vendor_product_control_id,vendor_order_price) 
+INSERT INTO ABCDistributorDB.vendor_product (vendor_product_id,vendor_product_control_id,vendor_bulk_unit_id,vendor_bulk_price,vendor_id)VALUES
+(001,001,1.50,001),
+(001,001,1.50,001), 
