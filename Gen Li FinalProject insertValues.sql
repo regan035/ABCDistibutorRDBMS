@@ -252,12 +252,12 @@ INSERT INTO ABCDistributorDB.account_transaction(account_transaction_id,account_
 (004,' ',' ',' '),
 (005,'PAYPAL','','Paid');
 
-INSERT INTO ABCDistributorDB.invoice(invoice_id,invoice_customer_id,invoice_store_id,invoice_po_id,invoice_transaction_id)VALUES
-(001,001,001,001,001),
-(002,002,002,002,002),
-(003,003,003,003,003),
-(004,004,004,004,004),
-(005,005,005,005,005);
+INSERT INTO ABCDistributorDB.invoice(invoice_id,invoice_num,invoice_customer_id,invoice_store_id,invoice_po_id,invoice_transaction_id)VALUES
+(001,'A0145721',001,001,001,001),
+(002,'A5548136',002,002,002,002),
+(003,'E4564889',003,003,003,003),
+(004,'B8741682',004,004,004,004),
+(005,'C4893215',005,005,005,005);
 
 
 INSERT INTO ABCDistributorDB.inventory

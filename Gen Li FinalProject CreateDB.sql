@@ -181,6 +181,7 @@ CREATE TABLE account_transaction(
 DROP TABLE IF EXISTS invoice;
 CREATE TABLE invoice(
     invoice_id INT(11) NOT NULL,
+    invoice_num VARCHAR(50)NOT NULL,
     invoice_customer_id INT(11) NOT NULL,
     invoice_store_id INT(11) NOT NULL,
     invoice_po_id INT(11)NOT NULL,
