@@ -147,44 +147,32 @@ CREATE TABLE purchase_order(
     
 ) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
-DROP TABLE IF EXISTS inventory;
-CREATE TABLE inventory(
-    inv_id INT(11)AUTO_INCREMENT NOT NULL,
-    -- inv_number VARCHAR(30) NOT NULL UNIQUE,
-    inv_product_id INT(11) NOT NULL,
-    inv_storage_location VARCHAR(30)NOT NULL,
-    inv_oh_qty DECIMAL(10,1),
-    inv_auto_reorder_point DECIMAL(10,1),
-    inv_auto_reorder_qty DECIMAL(10,1),
-    inv_auto_reorder VARCHAR(10)NOT NULL,
-    PRIMARY KEY(inv_id),
-    FOREIGN KEY(inv_product_id)REFERENCES vendor_product(vendor_product_id)
-) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
 
 DROP TABLE IF EXISTS store_location;
 CREATE TABLE store_location(
     store_id INT(11) NOT NULL UNIQUE,
     store_address_id INT(11),
-    store_phone VARCHAR(11),
+    store_phone VARCHAR(20),
     PRIMARY KEY(store_id),
     FOREIGN KEY(store_address_id)REFERENCES address(address_id)
     
 ) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
-DROP TABLE IF EXISTS payment_received;
-CREATE TABLE payment_received(
-    payment_received_id INT (11)NOT NULL,
-    payment_received VARCHAR(10),
-    PRIMARY KEY(payment_received_id)
-) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+-- DROP TABLE IF EXISTS payment_received;
+-- CREATE TABLE payment_received(
+--     payment_received_id INT (11)NOT NULL,
+--     payment_received VARCHAR(10),
+--     PRIMARY KEY(payment_received_id)
+-- ) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS account_transaction;
 CREATE TABLE account_transaction(
     account_transaction_id INT(11),
     account_payment_mathod VARCHAR(50),
-    account_payment_received_id INT(11),
-    PRIMARY KEY(account_transaction_id),
-    FOREIGN KEY(account_payment_received_id)REFERENCES payment_received(payment_received_id)
+    account_payment_received VARCHAR(11),
+    PRIMARY KEY(account_transaction_id)
+    -- FOREIGN KEY(account_payment_received_id)REFERENCES payment_received(payment_received_id)
 ) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 
@@ -206,6 +194,18 @@ CREATE TABLE invoice(
 ) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 
-
+DROP TABLE IF EXISTS inventory;
+CREATE TABLE inventory(
+    inv_id INT(11)AUTO_INCREMENT NOT NULL,
+    -- inv_number VARCHAR(30) NOT NULL UNIQUE,
+    inv_product_id INT(11) NOT NULL,
+    inv_storage_location VARCHAR(30)NOT NULL,
+    inv_oh_qty DECIMAL(10,1),
+    inv_auto_reorder_point DECIMAL(10,1),
+    inv_auto_reorder_qty DECIMAL(10,1),
+    inv_auto_reorder VARCHAR(10)NOT NULL,
+    PRIMARY KEY(inv_id),
+    FOREIGN KEY(inv_product_id)REFERENCES vendor_product(vendor_product_id)
+) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 

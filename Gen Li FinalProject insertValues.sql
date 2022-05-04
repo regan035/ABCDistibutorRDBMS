@@ -113,7 +113,7 @@ INSERT INTO ABCDistributorDB.contact
 (003,'Brooklynn','Hart','','',002,'(339)883-3350','(309)310-2547','','brooklynnhart@gmail.com'),
 (004,'Kaiya','Flynn','','',004,'(407)782-2891','','','Kaiyaflynn@gmail.com'),
 (005,'Dennis','Perry','','',005,'(631)604-8563','','','dennisperry@gmail.com'),
-(006,'Chloe','Avery','','',001,'(574)283-2888','(574)283-2889','','chloeavery@gmail.com'),
+(006,'Chloe','Avery','','',007,'(574)283-2888','(574)283-2889','','chloeavery@gmail.com'),
 (007,'Jenny','Reed','','',011,'(315)893-7391','(315)893-7392','','jennyreed@gmail.com'),
 (008,'Todd','Farley','','',016,'(225)200-9700','(225)200-9701','','toddfarley@gmail.com'),
 (009,'Oliver','Hansen','','',018,'(646)879-3995','','','oliverhansen@gmail.com'),
@@ -237,6 +237,14 @@ INSERT INTO ABCDistributorDB.purchase_order(po_id,po_num,po_puduct_id,po_vendor_
 (003,'B6455752','008',008,3,0,0.3,4.77),
 (004,'B4512453','026',026,4,-4,4.8,60.76),
 (005,'B4251252','010',010,2,-2,3.8,48.78);
+
+INSERT INTO ABCDistributorDB.store_location (store_id,store_address_id,store_phone)VALUES
+(001,003,'(215)987-2715'),
+(002,008,'(619)732-5057'),
+(003,010,'(719)687-3112'),
+(004,015,'(205)457-2865'),
+(005,031,'(634)-965-9897');
+
 
 INSERT INTO ABCDistributorDB.inventory
 (inv_id,inv_product_id,inv_storage_location,inv_oh_qty,inv_auto_reorder_point,inv_auto_reorder_qty,inv_auto_reorder)VALUES
