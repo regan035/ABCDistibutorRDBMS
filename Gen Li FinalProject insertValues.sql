@@ -166,4 +166,36 @@ INSERT INTO ABCDistributorDB.unit (unit_id,unit_name) VALUES
 (004,'Carton'),
 (005,'Bottle'),
 (006,'Gallon'),
-(007,'Piece');
+(007,'Piece'),
+(008,'Dozen');
+
+INSERT INTO ABCDistributorDB.product 
+(product_id,product_sku,product_name,product_discription,product_category_id,product_unit_id,product_unit_price,product_image_url_1) VALUES
+(001,'26438674','Milk','Organic Milk 2% Reduced',001,001,3.49,''),
+(002,'45888365','Egg','Organic Egg White AA',001,008,3.99,''),
+(003,'75357467','Apple Juice','Organic Apple Juice',001,005,1.49,''),
+(004,'26423651','Chocolate','Chocolate,Extra Dark with Caramal',001,007,2.99,''),
+(005,'26764723','TShirt','TShirt,White L',002,003,12.49,''),
+(006,'26464322','Jacket','Jacket, Red M',002,001,19.49,''),
+(007,'26436424','Jeans','Jeans,Navy 34*32',002,001,25.99,''),
+(008,'26424674','Hand Soup','Ocean Breeze',004,001,1.49,''),
+(009,'26447255','Shampoo','Organic 2 in 1',004,005,7.49,''),
+(010,'26453454','Printing Paper','White A4 500*12',004,002,23.49,''),
+(011,'42553674','Ink Cartridge','BK & CLR XXL',004,003,45.99,''),
+(012,'23452374','Notebook','Notebook, Cartoon Series',004,001,4.49,''),
+(013,'54328444','HDMI Cable','HDMI Cable 10Ft',005,003,23.49,''),
+(014,'26438674','Battery','AAA Battery 48PK',005,003,16.99,''),
+(015,'43246735','Surge Protector','18Gauge 12 Outlets',005,004,23.49,''),
+(016,'65386756','Engine Oil','5W40 Engine Oil',007,003,12.49,''),
+(017,'64328622','Windshield Cleaner','1.5 Gallon Windshield Cleaner',007,001,7.49,''),
+(018,'52346423','Air Refresher','Air Refresher, Hawaii Bloom 3PK',007,003,8.49,''),
+(019,'53486522','Basketball','NBA Basketball 2022',008,001,15.49,''),
+(020,'64336442','Dumbbell Set','Dumbell Set 20LBS',008,004,29.99,''),
+(021,'62467445','Tent','Tent Blue XL',008,001,59.99,''),
+(022,'62466453','Matchbox Car','Matchbox Car 2001 models',009,002,5.49,''),
+(023,'24286522','Baby Shark','Baby Shark',009,001,6.49,''),
+(024,'21556112','Pop It','Pop It Muliti-Color',009,001,2.49,''),
+(025,'22334234','Foldable Desk','Foldable Desk, Heavyduty 8FT',010,001,48.99,''),
+(026,'26438674','Foldable Chair','Foldable Chair, Heavyduty',010,001,14.99,''),
+(027,'45326235','Bread Toaster','Bread Toaster Stainless Steel',006,001,19.99,''),
+(028,'42674234','Coffee Maker','Coffee Maker,Automatic',006,001,29.99,'');
