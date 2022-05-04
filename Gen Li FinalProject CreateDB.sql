@@ -152,9 +152,9 @@ CREATE TABLE inventory(
     inv_id INT(11)AUTO_INCREMENT NOT NULL,
     -- inv_number VARCHAR(30) NOT NULL UNIQUE,
     inv_product_id INT(11) NOT NULL,
-    storage_location VARCHAR(30)NOT NULL,
-    oh_qty DECIMAL(10,1),
-    reorder_qty DECIMAL(10,1),
+    inv_storage_location VARCHAR(30)NOT NULL,
+    inv_oh_qty DECIMAL(10,1),
+    inv_reorder_qty DECIMAL(10,1),
     PRIMARY KEY(inv_id),
     FOREIGN KEY(inv_product_id)REFERENCES product(product_id)
 ) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;

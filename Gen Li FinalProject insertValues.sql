@@ -230,3 +230,10 @@ INSERT INTO ABCDistributorDB.vendor_product (vendor_product_id,vendor_product_co
 (026,026,001,12.95,006),
 (027,027,009,62.95,001),
 (028,028,009,112.95,001); 
+
+INSERT INTO ABCDistributorDB.purchase_order(po_id,po_num,po_puduct_id,po_vendor_product_id,po_qty,po_discount,po_sales_tax,po_total)VALUES
+(001,'B4235252','016',016,1,0,1.2,13.59),
+(002,'B4342253','001',001,1,0,0,3.49),
+(003,'B6455752','008',008,3,0,0.3,4.77),
+(004,'B4512453','026',026,4,-4,4.8,60.76),
+(005,'B4251252','010',010,2,-2,3.8,48.78);
