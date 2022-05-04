@@ -1,3 +1,4 @@
+
 DROP DATABASE IF EXISTS ABCDistributorDB;
 CREATE DATABASE ABCDistributorDB;
 USE ABCDistributorDB;
@@ -117,10 +118,12 @@ DROP TABLE IF EXISTS vendor_product;
 CREATE TABLE vendor_product(
     vendor_product_id INT(11)AUTO_INCREMENT NOT NULL,
     vendor_product_control_id INT(11),
-	vendor_order_price DECIMAL(10,2) NOT NULL,
+    vendor_bulk_unit_id INT(11),
+	vendor_bulk_price DECIMAL(10,2) NOT NULL,
     vendor_id INT(11)NOT NULL,
     PRIMARY KEY (vendor_product_id),
     FOREIGN KEY (vendor_product_control_id)REFERENCES product(product_id),
+    FOREIGN KEY (vendor_bulk_unit_id)REFERENCES unit(unit_id),
     FOREIGN KEY (vendor_id) REFERENCES vendor (vendor_id)
 ) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
@@ -140,11 +143,6 @@ CREATE TABLE purchase_order(
     FOREIGN KEY (po_puduct_id)REFERENCES product(product_id)
     
 ) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
-# DROP TABLE IF EXISTS purchase_order_product;
-# CREATE TABLE purchase_order_product(
-    
-# ) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS inventory;
 CREATE TABLE inventory(
@@ -202,10 +200,7 @@ CREATE TABLE invoice(
     
 ) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
-# DROP TABLE IF EXISTS invoice_detail;
-# CREATE TABLE invoice_detail(
-    
-# ) ENGINE = INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
 
 
 

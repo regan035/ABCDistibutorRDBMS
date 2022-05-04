@@ -199,3 +199,5 @@ INSERT INTO ABCDistributorDB.product
 (026,'26438674','Foldable Chair','Foldable Chair, Heavyduty',010,001,14.99,''),
 (027,'45326235','Bread Toaster','Bread Toaster Stainless Steel',006,001,19.99,''),
 (028,'42674234','Coffee Maker','Coffee Maker,Automatic',006,001,29.99,'');
+
+INSERT INTO ABCDistributorDB.vendor_product (vendor_product_id,vendor_product_control_id,vendor_order_price) 
