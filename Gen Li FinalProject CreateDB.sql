@@ -135,11 +135,12 @@ CREATE TABLE purchase_order(
     po_id INT(11) AUTO_INCREMENT NOT NULL,
     po_num VARCHAR(11)NOT NULL,
     po_puduct_id INT(11)NOT NULL,
+    po_vendor_product_id INT(11) NOT NULL,
     po_qty DECIMAL(10,2)NOT NULL,
     po_discount DECIMAL(10.2),
     po_sales_tax DECIMAL(10,2)NOT NULL,
     po_total DECIMAL(10,2)NOT NULL,
-	po_vendor_product_id INT(11) NOT NULL,
+	
     PRIMARY KEY(po_id),
     FOREIGN KEY (po_vendor_product_id)REFERENCES vendor_product(vendor_product_id),
     FOREIGN KEY (po_puduct_id)REFERENCES product(product_id)
