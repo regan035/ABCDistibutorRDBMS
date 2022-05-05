@@ -46,7 +46,35 @@ INNER JOIN inventory
 ON inventory.inv_product_id = vendor_product.vendor_product_id
 INNER JOIN vendor
 on vendor.vendor_id = vendor_product.vendor_id
-WHERE inventory.inv_auto_reorder = 'NO'
+WHERE inventory.inv_auto_reorder = 'NO';
+
+-- Display all unpaid invoices
+SELECT
+invoice.invoice_num,
+customer.customer_num,
+contact.first_name,
+contact.last_name,
+purchase_order.po_num,
+product.product_name,
+product.product_sku,
+product.product_unit_price,
+purchase_order.po_qty,
+purchase_order.po_discount,
+purchase_order.po_sales_tax,
+purchase_order.po_total,
+account_transaction.account_payment_paid
+FROM invoice
+INNER JOIN purchase_order
+ON purchase_order.po_id = invoice.invoice_po_id
+INNER JOIN customer
+ON customer.customer_id = invoice.invoice_customer_id
+INNER JOIN contact
+ON contact.contact_id = customer.customer_contact_id
+INNER JOIN product
+ON product.product_id = purchase_order.po_puduct_id
+INNER JOIN account_transaction
+ON account_transaction.account_transaction_id = invoice.invoice_transaction_id
+WHERE account_transaction.account_payment_paid = '';
 
 
 
