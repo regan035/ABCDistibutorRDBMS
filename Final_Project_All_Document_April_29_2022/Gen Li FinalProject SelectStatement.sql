@@ -122,4 +122,34 @@ INNER JOIN country
 ON country.country_id = state.state_country_id
 INNER JOIN zip_code
 ON zip_code.zip_code_id = address.address_zip_code_id
-WHERE state.state_id = 001
+WHERE state.state_id = 001;
+
+-- List all grocery product stock status
+SELECT
+product.product_name,
+product.product_sku,
+product.product_discription,
+inventory.inv_storage_location,
+inventory.inv_oh_qty,
+unit.unit_name,
+vendor_product.vendor_bulk_price,
+vendor.vendor_num,
+contact.orginazation_name
+FROM product
+INNER JOIN vendor_product
+ON vendor_product.vendor_product_control_id = product.product_id
+INNER JOIN unit
+ON unit.unit_id = vendor_product.vendor_bulk_unit_id
+INNER JOIN inventory
+ON inventory.inv_product_id = vendor_product.vendor_product_id
+INNER JOIN vendor
+ON vendor.vendor_id = vendor_product.vendor_id
+INNER JOIN contact
+ON contact.contact_id = vendor.vendor_contact_id
+INNER JOIN product_category
+ON product_category.product_category_id=product.product_category_id
+WHERE product_category.product_category_name='Grocery';
+
+
+
+
