@@ -95,5 +95,31 @@ ON state.state_id = city.city_state_id
 INNER JOIN country
 ON country.country_id = state.state_country_id
 INNER JOIN zip_code
-ON zip_code.zip_code_id = address.address_zip_code_id
+ON zip_code.zip_code_id = address.address_zip_code_id;
 
+-- List all customers located in the Califonioa USA.
+SELECT
+customer.customer_num,
+contact.first_name,
+contact.last_name,
+contact.primary_phone,
+contact.email,
+address.address_street,
+city.city_name,
+state.state_name,
+country.country_name,
+zip_code.zip_code_num
+FROM customer
+INNER JOIN contact
+ON contact.contact_id = customer.customer_contact_id
+INNER JOIN address
+ON address.address_id = contact.address_id
+INNER JOIN city
+ON city.city_id = address.address_city_id
+INNER JOIN state
+ON state.state_id = city.city_state_id
+INNER JOIN country
+ON country.country_id = state.state_country_id
+INNER JOIN zip_code
+ON zip_code.zip_code_id = address.address_zip_code_id
+WHERE state.state_id = 001
