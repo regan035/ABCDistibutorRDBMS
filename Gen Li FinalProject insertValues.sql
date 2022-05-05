@@ -243,7 +243,7 @@ INSERT INTO ABCDistributorDB.store_location (store_id,store_address_id,store_pho
 (002,008,'(619)732-5057'),
 (003,010,'(719)687-3112'),
 (004,015,'(205)457-2865'),
-(005,031,'(634)-965-9897');
+(005,019,'(634)-965-9897');
 
 INSERT INTO ABCDistributorDB.account_transaction(account_transaction_id,account_payment_mathod,account_payment_mathod_num,account_payment_paid)VALUES
 (001,'Cash','','Paid'),

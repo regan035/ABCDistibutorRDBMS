@@ -45,7 +45,7 @@ ON unit.unit_id = vendor_product.vendor_bulk_unit_id
 INNER JOIN inventory
 ON inventory.inv_product_id = vendor_product.vendor_product_id
 INNER JOIN vendor
-on vendor.vendor_id = vendor_product.vendor_id
+ON vendor.vendor_id = vendor_product.vendor_id
 WHERE inventory.inv_auto_reorder = 'NO';
 
 -- Display all unpaid invoices
@@ -76,6 +76,24 @@ INNER JOIN account_transaction
 ON account_transaction.account_transaction_id = invoice.invoice_transaction_id
 WHERE account_transaction.account_payment_paid = '';
 
-
-
+-- List all stores addresses
+SELECT 
+store_location.store_id,
+address.address_street,
+city.city_name,
+state.state_name,
+country.country_name,
+zip_code.zip_code_num,
+store_location.store_phone
+FROM store_location
+INNER JOIN address
+ON address.address_id = store_location.store_address_id
+INNER JOIN city
+ON city.city_id = address.address_city_id
+INNER JOIN state
+ON state.state_id = city.city_state_id
+INNER JOIN country
+ON country.country_id = state.state_country_id
+INNER JOIN zip_code
+ON zip_code.zip_code_id = address.address_zip_code_id
 
